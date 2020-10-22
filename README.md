@@ -47,9 +47,3 @@ Request Data: {
 Response Data: {
 'status': 'success'
 }
-
-Mandatory Requirement: All the passwords stored in the database have to be encrypted.
-No one should be able to read the stored passwords without a secret key. The key can be stored in the code itself.
-Tech Stack:
-Any web-server of your choice (Python Flask / Django, NodeJS Express / Koa, Java, etc)
-Database: MySQL (Compulsory)
