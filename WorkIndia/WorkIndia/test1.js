@@ -52,7 +52,7 @@ app.post('/app/user', function (req, res) {
     connection.query('select * from webusers where username=? and password=?', [req.body.username,req.body.password], function (error, results, fields) {
        if (error) throw error;
        let finalresult={"status":"success","usersId":"int"};
-       res.end(JSON.stringify(results));
+       res.end(JSON.stringify(finalresult));
      });
  });
  app.get('/app/sites/list/', function (req, res) {
