@@ -1,16 +1,4 @@
 # Workindia
-Password Keeper/Manager App -
-Statement for Candidates:
-Below is the problem statement for your project.
-Your task is to create an API that supports project requirements.
-You have 3 hours to develop the API.
-You are free to use google to find solutions, however, copying an existing project is not allowed.
-At the end of the 3 hour time period, you will be given get 15 minutes to do your submission on Google Form & to push your project in a
-GitHub repository, submission form: https://forms.gle/PqfNAakDWgz146BJ8
-Your API submission will be evaluated by our team and a result will be published at 11:30 AM on the same day.
-No need to create the session, authenticate using user_id
-No need to apply JWT or any token for authentication, simply use user_id to authenticate
-What is the project?
 A web application that keeps a record of users' passwords. Users can log into the panel to see the username and passwords of websites they
 have saved.
 Requirements:
@@ -39,14 +27,6 @@ Response Data: {
 'userId': int
 }
 
-3.
-
-4.
-
-5.
-
-1.
-2.
 List of saved usernames and passwords for different websites:
 Provide ability for user to see list of previously stored website usernames & passwords.
 
