@@ -56,7 +56,7 @@ app.post('/app/user', function (req, res) {
      });
  });
  app.get('/app/sites/list/', function (req, res) {
-    connection.query('select webdata from authors where userid=?', [req.query.userid], function (error, results, fields) {
+    connection.query('select webdata from webusers where userid=?', [req.query.userid], function (error, results, fields) {
        if (error) throw error;
        res.end(JSON.stringify(results));
      });
