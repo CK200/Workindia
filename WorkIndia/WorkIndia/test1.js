@@ -63,7 +63,7 @@ app.post('/app/user', function (req, res) {
  });
  app.post('/app/sites', function (req, res) {
 
-    connection.query('UPDATE `webusers` SET `webdata`=?,`city`=? where `Id`=? and `webdata.website`=?', [req.query.userid,req.body.website], function (error, results, fields) {
+    connection.query('UPDATE `webusers` SET `webdata`=? where `Id`=? and `webdata.website`=?', [req.body,req.query.userid,req.body.website], function (error, results, fields) {
        if (error) throw error;
        results.status="success";
        res.end(JSON.stringify(results));
