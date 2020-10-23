@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   host     : 'localhost', //mysql database host name
   user     : 'root', //mysql database user name
   password : '', //mysql database password
-  database : 'webusers' //mysql database name
+  database : 'test' //mysql database name
 });
 
 connection.connect(function(err) {
@@ -42,7 +42,7 @@ var server = app.listen(3000,  "127.0.0.1", function () {
 app.post('/app/user', function (req, res) {
     var params  = req.body;
     console.log(params);
-    connection.query('INSERT INTO webusers (username,password) values(?,?)', [req.body.username,req.body.password], function (error, results, fields) {
+    connection.query('INSERT INTO webusers (username,password) values(?,?)', [req.body.username,req.body.password], function (error, results) {
        if (error) throw error;
        let finalresult={"status":"account created"};
        res.end(JSON.stringify(finalresult));
@@ -55,18 +55,19 @@ app.post('/app/user', function (req, res) {
        res.end(JSON.stringify(finalresult));
      });
  });
- app.get('/app/sites/list/', function (req, res) {
-    connection.query('select webdata from webusers where userid=?', [req.query.userid], function (error, results, fields) {
+ app.get('/app/sites/list', function (req, res) {
+   console.log('User Id',req.query.userid);
+    connection.query('select * from webusers where userid=?', [req.query.userid], function (error, results, fields) {
        if (error) throw error;
+       console.log(results);
        res.end(JSON.stringify(results));
      });
  });
- app.post('/app/sites', function (req, res) {
-
-    connection.query('UPDATE `webusers` SET `webdata`=? where `Id`=? , [concat(webdata,req.body),req.query.userid], function (error, results, fields) {
-       if (error) throw error;
-       results.status="success";
-       res.end(JSON.stringify(results));
-     });
- });
+// app.post('/app/sites', function (req, res) {
+// connection.query('UPDATE `webusers` SET `webdata`=?, where `userid`=? and `webdata.website`=?', [req.body,req.query.userid,req.body.website], function (error, results, fields) {
+//        if (error) throw error;
+//        results.status="success";
+//        res.end(JSON.stringify(results));
+//      });
+//  });
 //rest api to get all customers
